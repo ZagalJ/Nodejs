@@ -41,12 +41,6 @@ const questions = [
     
 ];
 
-// inquirer
-   
-//     .then((response) => 
-//         console.log("Data saved. Wait for ReadMe File")
-//     );
-
 // TODO: Create a function to write README file
 const writeToFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) =>
@@ -72,8 +66,3 @@ inquirer
 
 // Function call to initialize app
 init();
-
-
-
-
-
