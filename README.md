@@ -1,2 +1,1 @@
-# Nodejs
-Node.JS ReadMe generator
+{"title":"Homework 9 Node JS","description":"test","index":true,"installation":"install as required","usage":"use as required","license":"MIT"}
