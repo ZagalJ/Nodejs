@@ -34,7 +34,6 @@ const generateMarkdown = (data) => {
     table += `* [Usage](#usage)\n`; 
     table += `* [Contributions](#contributions)\n`; 
     table += `* [License](#license)\n`;
-    table += `* [Credits](#credits)\n`; 
     table += `* [Questions](#questions)\n`;
   
     let readmeTemplate = `# ${data.title}\n`;
@@ -42,8 +41,8 @@ const generateMarkdown = (data) => {
     readmeTemplate += `\n## Description\n${data.description}\n`;
     readmeTemplate += table;
   
-    if (data.install) {
-      readmeTemplate += `\n## Installation\n${data.install}\n`;
+    if (data.installation) {
+      readmeTemplate += `\n## Installation\n${data.installation}\n`;
     }
     if (data.usage) {
       readmeTemplate += `\n## Usage\n${data.usage}\n`;
