@@ -1,11 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./markdown');
 
 
 // TODO: Create an array of questions for user input
-console.log("** Start of New Homework **")
-
+console.log("** Start of README generator **")
+// array of questions for input
 const questions = [
     {
         type:"input",
@@ -17,11 +18,11 @@ const questions = [
         message:"Provide a short description of your code. ",
         name:"description"
     },
-    {
-        type:"confirm",
-        message:"Would you like to have an table of contents? ",
-        name:"index"
-    },
+    // {
+    //     type:"confirm",
+    //     message:"Would you like to have an table of contents? ",
+    //     name:"index"
+    // },
     {
         type:"input",
         message:"Please add installation instructions: ",
@@ -33,11 +34,26 @@ const questions = [
         name:"usage"
     },
     {
+        type:"input",
+        message:"Please add any contributions: ",
+        name:"contribute"
+    },    
+    {
         type: 'rawlist',
         message: 'Which open source license would you like to use? ',
         name: 'license',
         choices: ['Apache 2.0', 'BSD 2-Clause', 'BSD 3-Clause', 'GNU AGPLv3.0', 'GNU GPLv2.0', 'GNU GPLv3.0', 'MIT', 'Mozilla Public 2.0'],
     },
+    {
+        type:"input",
+        message:"Please enter your Github Username: ",
+        name:"github"
+    },    
+    {
+        type:"input",
+        message:"Please enter your email: ",
+        name:"email"
+    },  
     
 ];
 
@@ -54,7 +70,7 @@ function init() {
 inquirer
     .prompt(questions)
     .then(function(data){            
-          fs.writeFile("README.md", JSON.stringify(data), function(err) {
+          fs.writeFile("README.md", generateMarkdown(data), function(err) {
             if (err) {
               throw err;
             };
